@@ -4,6 +4,7 @@ namespace CleanArchMvc.Domain.Entities
 {
     public sealed class Product : EntityBase
     {
+        public string Name { get; protected set; }
         public string Description { get; private set; }
         public decimal Price { get; private set; }
         public int Stock { get; private set; }

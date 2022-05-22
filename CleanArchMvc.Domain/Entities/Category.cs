@@ -5,6 +5,7 @@ namespace CleanArchMvc.Domain.Entities
 {
     public sealed class Category : EntityBase
     {
+        public string Name { get; protected set; }
         public ICollection<Product> Products { get; set; }
 
         public Category(string name)
