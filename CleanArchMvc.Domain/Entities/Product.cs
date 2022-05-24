@@ -20,20 +20,15 @@ namespace CleanArchMvc.Domain.Entities
 
         public Product(int id, string name, string description, decimal price, int stock, string image)
         {
-            ValidateDomain(id, name, description, price, stock, image);
-        }
-
-        public Product(int id, string name, string description, decimal price, int stock, string image, int categoryId)
-        {
-            ValidateDomain(id, name, description, price, stock, image);
-            CategoryId = categoryId;
-        }
-
-        private void ValidateDomain(int id, string name, string description, decimal price, int stock, string image)
-        {
             DomainExceptionValidation.When(id < 0, "Invalid Id value.");
             ValidateDomain(name, description, price, stock, image);
             Id = id;
+        }
+
+        public void Update(string name, string description, decimal price, int stock, string image, int categoryId)
+        {
+            ValidateDomain(name, description, price, stock, image);
+            CategoryId = categoryId;
         }
 
         private void ValidateDomain(string name, string description, decimal price, int stock, string image)
